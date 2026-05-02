@@ -3,13 +3,14 @@
 }
 
 :root {
-  --bg-color: #ffffff;
-  --text-color: #000000;
-  --container-bg: #ffffff;
+  --bg-color: #f0f4ef;
+  --text-color: #08090a;
+  --container-bg: #f0f4ef;
   --container-shadow: #e0e0e0;
-  --container-border: #dcdcdc;
-  --toggle-bg: ##f3f3f3;
-  --span-color: #505050;
+  --container-border: rgba(52, 58, 64, 0.2);
+  --toggle-bg: #f0f4ef;
+  --span-color: #343a40;
+  --accent-color: #98ce00;
 }
 
 .toggle-label + #toggle-theme:checked {
@@ -29,8 +30,9 @@
 .toggle-label .icon {
   transition:
     opacity 0.5s ease,
-    transform 1s ease;
-  margin-bottom: 5px;
+    transform 0.5s ease;
+  margin-bottom: 0;
+  font-size: 1.5rem;
 }
 
 .icon-moon {
@@ -58,23 +60,64 @@
   width: 80px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   border-radius: 20px;
   cursor: pointer;
-  box-shadow: 0 0 5px var(--span-color);
+  box-shadow: 0 2px 8px rgba(52, 58, 64, 0.15);
   background-color: var(--toggle-bg);
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   position: relative;
+  border: 2px solid var(--container-border);
+  padding: 0 8px;
+  transition: all 0.3s ease;
 }
 
+#toggle-theme + .toggle-label:hover {
+  box-shadow: 0 2px 12px rgba(52, 58, 64, 0.25);
+  border-color: var(--accent-color);
+}
+
+/* --- Dark Mode --- */
+
 body.dark-mode {
-  --bg-color: #1e1e1e;
-  --card-bg: rgba(44, 44, 44, 0.8);
-  --card-border: #70b77e;
-  --card-shadow: 5px 10px 15px #065143;
-  --text-primary: #70b77e;
-  --text-secondary: #e0e0e0;
-  --text-accent: #ffffff;
-  --toggle-bg: #2c2c2c;
+  --bg-color: #091016;
+  --text-color: #f0f4ef;
+  --container-bg: #091016;
+  --container-shadow: rgba(0, 0, 0, 0.4);
+  --container-border: rgba(152, 206, 0, 0.2);
+  --toggle-bg: rgba(52, 58, 64, 0.5);
+  --span-color: #f0f4ef;
+  --accent-color: #98ce00;
+}
+
+body.dark-mode #toggle-theme + .toggle-label {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode #toggle-theme + .toggle-label:hover {
+  box-shadow: 0 2px 12px rgba(152, 206, 0, 0.3);
+  border-color: var(--accent-color);
+}
+
+/* --- Responsividade --- */
+
+@media (max-width: 480px) {
+  #toggle-theme + .toggle-label {
+    height: 36px;
+    width: 72px;
+    font-size: 1.4rem;
+    border-radius: 18px;
+    padding: 0 6px;
+  }
+}
+
+@media (max-width: 320px) {
+  #toggle-theme + .toggle-label {
+    height: 32px;
+    width: 64px;
+    font-size: 1.2rem;
+    border-radius: 16px;
+    padding: 0 5px;
+  }
 }

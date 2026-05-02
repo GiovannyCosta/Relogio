@@ -3,10 +3,10 @@ const dateEl = document.querySelector(".date");
 const timeEl = document.querySelector(".time");
 const greetingEl = document.querySelector(".greeting");
 const imgEl = document.querySelector("#img");
-const langDropdown = document.getElementById("lang-opt");
+const langBtn = document.getElementById("lang-btn");
 
 // inicializa padrão PT-BR
-let langConfig = "" || "pt-br";
+let langConfig = "pt-br";
 const optionsDate = {
   day: "2-digit",
   month: "long",
@@ -18,19 +18,17 @@ const optionsTime = {
   second: "2-digit",
 };
 
-// Evento de mudança de idioma
-langDropdown.addEventListener("change", (e) => {
-  // muda o idioma com o valor selecionado
-  changLangOpt(e.target.value);
+// Evento de clique do botão de linguagem
+langBtn.addEventListener("click", () => {
+  // Alterna entre PT e EN
+  changLangOpt(langConfig === "pt-br" ? "en-US" : "pt-br");
 });
 
 function changLangOpt(newLang) {
-  const select = document.getElementById("lang-opt");
-  if (newLang) {
-    select.value = newLang;
-    langConfig = newLang;
-    update(); // Força a atualização visual imediata
-  }
+  langConfig = newLang;
+  langBtn.textContent = newLang === "en-US" ? "PT" : "EN";
+  localStorage.setItem("language", newLang);
+  update(); // Força a atualização visual imediata
 }
 
 function updateHours() {
@@ -78,6 +76,14 @@ function update() {
   updateWeather();
 }
 
+// Carrega preferência de linguagem do localStorage
+const savedLang = localStorage.getItem("language");
+if (savedLang) {
+  langConfig = savedLang;
+  langBtn.textContent = savedLang === "en-US" ? "PT" : "EN";
+} else {
+  langBtn.textContent = "EN";
+}
+
 update(); // executa imediatamente
-changLangOpt(langConfig);
 setInterval(update, 1000); // atualiza a cada segundo
