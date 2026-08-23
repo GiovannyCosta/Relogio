@@ -10,6 +10,8 @@ A interface utiliza uma identidade visual em tons de rosa, roxo e azul, com logo
 - Data e dia da semana
 - Saudação e ilustração conforme o período do dia
 - Tema claro e escuro com preferência salva no navegador
+- Alternância entre português brasileiro e inglês
+- Preferência de idioma salva no navegador
 - Identificação automática do fuso horário
 - Layout responsivo
 

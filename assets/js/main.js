@@ -1,34 +1,4 @@
-import { formatarRelogio } from "./modulos/relogio.js";
-import { carregarTema, salvarTema, aplicarTema } from "./modulos/tema.js";
-const elementos = {
-  hora: document.querySelector("#time"),
-  dia: document.querySelector("#weekday"),
-  data: document.querySelector("#full-date"),
-  saudacao: document.querySelector("#greeting"),
-  imagem: document.querySelector("#period-image"),
-  periodo: document.querySelector("#period-label"),
-  fuso: document.querySelector("#timezone"),
-  tema: document.querySelector("#theme-button"),
-};
-let temaAtual = carregarTema();
-function atualizar() {
-  const agora = new Date();
-  const relogio = formatarRelogio(agora);
-  elementos.hora.innerHTML = `${relogio.hora}<span>:${relogio.segundos}</span>`;
-  elementos.hora.dateTime = relogio.iso;
-  elementos.dia.textContent = relogio.diaSemana;
-  elementos.data.textContent = relogio.dataCompleta;
-  elementos.saudacao.textContent = relogio.periodo.saudacao;
-  elementos.periodo.textContent = relogio.periodo.nome;
-  elementos.imagem.src = `./assets/images/${relogio.periodo.imagem}`;
-  elementos.imagem.alt = relogio.periodo.nome;
-  elementos.fuso.textContent = Intl.DateTimeFormat().resolvedOptions().timeZone.replaceAll("_", " ");
-}
-elementos.tema.addEventListener("click", () => {
-  temaAtual = temaAtual === "dark" ? "light" : "dark";
-  aplicarTema(temaAtual);
-  salvarTema(temaAtual);
-});
-aplicarTema(temaAtual);
-atualizar();
-window.setInterval(atualizar, 1000);
+import{formatarRelogio}from"./modulos/relogio.js";import{carregarTema,salvarTema,aplicarTema}from"./modulos/tema.js";import{carregarIdioma,salvarIdioma,textosInterface}from"./modulos/idioma.js";
+const elementos={hora:document.querySelector("#time"),dia:document.querySelector("#weekday"),data:document.querySelector("#full-date"),saudacao:document.querySelector("#greeting"),imagem:document.querySelector("#period-image"),periodo:document.querySelector("#period-label"),fuso:document.querySelector("#timezone"),tema:document.querySelector("#theme-button"),idioma:document.querySelector("#language-button"),welcome:document.querySelector("#welcome"),live:document.querySelector("#live-text")};let temaAtual=carregarTema(),idiomaAtual=carregarIdioma();
+function atualizar(){const relogio=formatarRelogio(new Date(),idiomaAtual),textos=textosInterface[idiomaAtual];elementos.hora.innerHTML=`${relogio.hora}<span>:${relogio.segundos}</span>`;elementos.hora.dateTime=relogio.iso;elementos.dia.textContent=relogio.diaSemana;elementos.data.textContent=relogio.dataCompleta;elementos.saudacao.textContent=relogio.periodo.saudacao;elementos.periodo.textContent=relogio.periodo.nome;elementos.imagem.src=`./assets/images/${relogio.periodo.imagem}`;elementos.imagem.alt=relogio.periodo.nome;elementos.fuso.textContent=Intl.DateTimeFormat().resolvedOptions().timeZone.replaceAll("_"," ");elementos.welcome.textContent=textos.welcome;elementos.live.textContent=textos.live;elementos.tema.ariaLabel=textos.theme;elementos.idioma.ariaLabel=textos.language;elementos.idioma.textContent=idiomaAtual==="en"?"BR":"EN";document.documentElement.lang=idiomaAtual==="en"?"en":"pt-BR"}
+elementos.tema.addEventListener("click",()=>{temaAtual=temaAtual==="dark"?"light":"dark";aplicarTema(temaAtual);salvarTema(temaAtual)});elementos.idioma.addEventListener("click",()=>{idiomaAtual=idiomaAtual==="en"?"br":"en";salvarIdioma(idiomaAtual);atualizar()});aplicarTema(temaAtual);atualizar();window.setInterval(atualizar,1000);

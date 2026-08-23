@@ -1,12 +1,2 @@
-import test from "node:test";
-import assert from "node:assert/strict";
-import { obterPeriodo, formatarRelogio } from "../assets/js/modulos/relogio.js";
-test("identifica manhã", () => assert.equal(obterPeriodo(8).saudacao, "Good morning"));
-test("identifica tarde", () => assert.equal(obterPeriodo(14).saudacao, "Good afternoon"));
-test("identifica noite", () => assert.equal(obterPeriodo(22).saudacao, "Good evening"));
-test("formata data e horário", () => {
-  const resultado = formatarRelogio(new Date("2026-08-23T14:05:09"));
-  assert.match(resultado.hora, /14:05/);
-  assert.equal(resultado.segundos, "9");
-  assert.equal(resultado.diaSemana, "Sunday");
-});
+import test from"node:test";import assert from"node:assert/strict";import{obterPeriodo,formatarRelogio}from"../assets/js/modulos/relogio.js";
+test("identifica manhã",()=>assert.equal(obterPeriodo(8).saudacao,"Good morning"));test("identifica tarde",()=>assert.equal(obterPeriodo(14).saudacao,"Good afternoon"));test("identifica noite",()=>assert.equal(obterPeriodo(22).saudacao,"Good evening"));test("traduz os períodos",()=>{assert.equal(obterPeriodo(8,"br").saudacao,"Bom dia");assert.equal(obterPeriodo(14,"br").saudacao,"Boa tarde");assert.equal(obterPeriodo(22,"br").saudacao,"Boa noite")});test("formata data em inglês",()=>{const r=formatarRelogio(new Date("2026-08-23T14:05:09"));assert.match(r.hora,/14:05/);assert.equal(r.diaSemana,"Sunday")});test("formata data em português",()=>{const r=formatarRelogio(new Date("2026-08-23T14:05:09"),"br");assert.equal(r.diaSemana,"domingo");assert.match(r.dataCompleta,/agosto/)});

@@ -1,15 +1,3 @@
-export function obterPeriodo(hora) {
-  if (hora >= 5 && hora < 12) return { nome: "morning", saudacao: "Good morning", imagem: "weather01.png" };
-  if (hora >= 12 && hora < 18) return { nome: "afternoon", saudacao: "Good afternoon", imagem: "weather02.png" };
-  return { nome: "evening", saudacao: "Good evening", imagem: "weather03.png" };
-}
-
-export function formatarRelogio(data) {
-  const hora = new Intl.DateTimeFormat("en-US", { hour: "2-digit", minute: "2-digit", hour12: false }).format(data);
-  const segundos = new Intl.DateTimeFormat("en-US", { second: "2-digit" }).format(data);
-  const diaSemana = new Intl.DateTimeFormat("en-US", { weekday: "long" }).format(data);
-  const dataCompleta = new Intl.DateTimeFormat("en-US", { month: "long", day: "numeric", year: "numeric" }).format(
-    data,
-  );
-  return { hora, segundos, diaSemana, dataCompleta, iso: data.toISOString(), periodo: obterPeriodo(data.getHours()) };
-}
+const textos={en:{locale:"en-US",periodos:{morning:"morning",afternoon:"afternoon",evening:"evening"},saudacoes:{morning:"Good morning",afternoon:"Good afternoon",evening:"Good evening"}},br:{locale:"pt-BR",periodos:{morning:"manhã",afternoon:"tarde",evening:"noite"},saudacoes:{morning:"Bom dia",afternoon:"Boa tarde",evening:"Boa noite"}}};
+export function obterPeriodo(hora,idioma="en"){const chave=hora>=5&&hora<12?"morning":hora>=12&&hora<18?"afternoon":"evening";const imagens={morning:"weather01.png",afternoon:"weather02.png",evening:"weather03.png"};return{nome:textos[idioma].periodos[chave],saudacao:textos[idioma].saudacoes[chave],imagem:imagens[chave]}}
+export function formatarRelogio(data,idioma="en"){const locale=textos[idioma].locale;return{hora:new Intl.DateTimeFormat(locale,{hour:"2-digit",minute:"2-digit",hour12:false}).format(data),segundos:new Intl.DateTimeFormat(locale,{second:"2-digit"}).format(data),diaSemana:new Intl.DateTimeFormat(locale,{weekday:"long"}).format(data),dataCompleta:new Intl.DateTimeFormat(locale,{month:"long",day:"numeric",year:"numeric"}).format(data),iso:data.toISOString(),periodo:obterPeriodo(data.getHours(),idioma)}}

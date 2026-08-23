@@ -19,9 +19,12 @@
         <a class="brand" href="./" aria-label="Orbit home">
           <img src="./assets/images/logo-orbit.svg" alt="Orbit Clock" />
         </a>
-        <button class="theme-button" id="theme-button" type="button" aria-label="Switch theme">
-          <span class="sun" aria-hidden="true">☀</span><span class="moon" aria-hidden="true">☾</span>
-        </button>
+        <div class="header-actions">
+          <button class="language-button" id="language-button" type="button" aria-label="Mudar idioma">BR</button>
+          <button class="theme-button" id="theme-button" type="button" aria-label="Switch theme">
+            <span class="sun" aria-hidden="true">☀</span><span class="moon" aria-hidden="true">☾</span>
+          </button>
+        </div>
       </header>
 
       <div class="date-area">
@@ -38,9 +41,9 @@
       <footer class="clock-footer">
         <div class="greeting-area">
           <img id="period-image" src="./assets/images/weather01.png" alt="Morning" />
-          <div><span>Welcome</span><strong id="greeting">Good morning</strong></div>
+          <div><span id="welcome">Welcome</span><strong id="greeting">Good morning</strong></div>
         </div>
-        <span class="live-status"><i></i> Live</span>
+        <span class="live-status"><i></i> <span id="live-text">Live</span></span>
       </footer>
     </section>
   </main>
