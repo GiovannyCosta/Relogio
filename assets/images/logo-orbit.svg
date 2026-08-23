@@ -1,0 +1,13 @@
+<svg width="150" height="46" viewBox="0 0 150 46" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title">
+  <title id="title">Orbit</title>
+  <defs>
+    <linearGradient id="orbit-gradient" x1="3" y1="3" x2="43" y2="43" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF72B6"/><stop offset="0.5" stop-color="#B65CDE"/><stop offset="1" stop-color="#718BFF"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="42" height="42" rx="14" fill="url(#orbit-gradient)"/>
+  <circle cx="23" cy="23" r="12" stroke="white" stroke-width="2.5"/>
+  <path d="M23 15V24L29 28" stroke="white" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="36" cy="10" r="3" fill="white"/>
+  <text x="55" y="31" fill="currentColor" font-family="Arial, sans-serif" font-size="27" font-weight="700" letter-spacing="-1">Orbit</text>
+</svg>

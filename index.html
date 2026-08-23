@@ -1,52 +1,49 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!doctype html>
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./assets/ico/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/toggle.css">
-    <title>Relógio Clássico</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A responsive digital clock with date, greeting and theme controls." />
+  <meta name="theme-color" content="#0b1020" />
+  <link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <script type="module" src="./assets/js/main.js"></script>
+  <title>Orbit</title>
 </head>
 
 <body>
-    <div class="container">
-        <!-- Cabeçalho com data -->
-        <div class="header">
-            <div class="week-wrapper">
-                <p class="day"><!--Domingo--></p>
-                <p class="date"><!--22 de Outubro de 2023--></p>
-            </div>
-            <div class="flex-wrapper">
-                <button class="lang-button" id="lang-btn">EN</button>
-                <div class="toggle-wrapper">
-                    <input type="checkbox" id="toggle-theme">
-                    <label for="toggle-theme" class="toggle-label">
-                        <span class="icon icon-sun">☀️</span>
-                        <span class="icon icon-moon">🌙</span>
-                    </label>
-                </div>
-            </div>
-        </div>
+  <main class="page">
+    <section class="clock" aria-label="Digital clock">
+      <header class="clock-header">
+        <a class="brand" href="./" aria-label="Orbit home">
+          <img src="./assets/images/logo-orbit.svg" alt="Orbit Clock" />
+        </a>
+        <button class="theme-button" id="theme-button" type="button" aria-label="Switch theme">
+          <span class="sun" aria-hidden="true">☀</span><span class="moon" aria-hidden="true">☾</span>
+        </button>
+      </header>
 
-        <!-- Wrapper para o ícone de clima -->
-        <div class="weather-wrapper">
-            <img id="img" alt="Ícone de clima atual" src="">
-        </div>
+      <div class="date-area">
+        <p class="weekday" id="weekday">Monday</p>
+        <p class="full-date" id="full-date">January 1, 2026</p>
+      </div>
 
-        <!-- Seção principal com hora e saudação -->
-        <div class="section">
-            <div class="time-wrapper">
-                <h1 class="time"><!--00:00--></h1>
-                <p class="greeting"><!----></p>
-            </div>
-        </div>
-    </div>
+      <div class="time-area">
+        <p class="period-label" id="period-label">Current time</p>
+        <time class="time" id="time" datetime="00:00:00">00:00<span>:00</span></time>
+        <p class="timezone" id="timezone">Local time</p>
+      </div>
 
-    <script src="./index.js"></script>
-    <script src="./toggle.js"></script>
+      <footer class="clock-footer">
+        <div class="greeting-area">
+          <img id="period-image" src="./assets/images/weather01.png" alt="Morning" />
+          <div><span>Welcome</span><strong id="greeting">Good morning</strong></div>
+        </div>
+        <span class="live-status"><i></i> Live</span>
+      </footer>
+    </section>
+  </main>
 </body>
 
 </html>

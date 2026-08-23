@@ -1,33 +1,58 @@
-# 🕒 Relógio Digital Dinâmico
+# Orbit
 
-![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+Relógio digital responsivo com data, saudação dinâmica e alternância de tema.
 
-Um relógio digital elegante que ajusta automaticamente a saudação (Bom dia, Boa tarde, Boa noite) e os ícones visuais conforme o horário do sistema. Suporta múltiplos idiomas (PT-BR / EN-US) através de um seletor interativo.
+A interface utiliza uma identidade visual em tons de rosa, roxo e azul, com logo e favicon próprios.
 
-## ✨ Funcionalidades
+## Funcionalidades
 
-- **Hora em tempo real**: Atualização segundo a segundo utilizando `setInterval`.
-- **Saudação e Interface Dinâmicas**: O texto e a imagem (sol, sol com nuvens ou lua) mudam automaticamente dependendo do período do dia (manhã, tarde ou noite).
-- **Internacionalização**: Fácil troca entre Português e Inglês, atualizando instantaneamente as datas, dias da semana e formatação (AM/PM para inglês).
-- **Design Responsivo e Moderno**: Interface limpa que se adapta a diferentes telas, estilizada com variáveis CSS (`:root`) e Flexbox para um alinhamento perfeito.
-- **Modo Escuro (Dark Mode):** Alternância de tema visual através de um interruptor (toggle) com persistência de dados no localStorage, garantindo que a preferência do utilizador seja mantida ao recarregar a página
+- Horário local atualizado em tempo real
+- Data e dia da semana
+- Saudação e ilustração conforme o período do dia
+- Tema claro e escuro com preferência salva no navegador
+- Identificação automática do fuso horário
+- Layout responsivo
 
-## 🚀 Tecnologias
+## Tecnologias
 
-- **HTML5**: Estrutura semântica.
-- **CSS3**: Estilização com manipulação de sombras, bordas arredondadas e variáveis globais.
-- **JavaScript Vanilla**: Manipulação de DOM (`querySelector`, `addEventListener`) e manipulação de datas com o objeto `Date` nativo.
+- HTML5
+- CSS3
+- JavaScript ES Modules
+- Local Storage
+- Node Test Runner
 
-## 🛠️ Como usar
+## Como executar
 
-1. Faça o clone deste repositório ou baixe os arquivos.
-2. Navegue até a pasta do projeto.
-3. Basta abrir o arquivo `index.html` em qualquer navegador de sua preferência. Não é necessária nenhuma instalação ou configuração adicional de servidor.
+Abra o projeto por meio de um servidor local, como a extensão Live Server do VS Code.
 
----
+## Testes
+
+```bash
+npm test
+```
+
+## Estrutura
+
+```text
+relogio-digital/
+├── assets/
+│   ├── css/style.css
+│   ├── icons/favicon.svg
+│   ├── images/
+│   └── js/
+│       ├── main.js
+│       └── modulos/
+├── tests/relogio.test.js
+├── .gitignore
+├── index.html
+├── package.json
+└── README.md
+```
+
+## Licença
+
+Projeto disponível para uso pessoal e portfólio.
 
 <p align="center">
-    Desenvolvido com dedicação por <strong>Giovanny Reizon</strong>.
+  Desenvolvido com tempo e dedicação por <strong>Giovanny Costa | Arghata</strong>.
 </p>

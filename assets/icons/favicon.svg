@@ -1,0 +1,7 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs><linearGradient id="orbit-gradient" x1="5" y1="4" x2="59" y2="60" gradientUnits="userSpaceOnUse"><stop stop-color="#FF72B6"/><stop offset="0.5" stop-color="#B65CDE"/><stop offset="1" stop-color="#718BFF"/></linearGradient></defs>
+  <rect x="2" y="2" width="60" height="60" rx="19" fill="url(#orbit-gradient)"/>
+  <circle cx="32" cy="32" r="18" stroke="white" stroke-width="4"/>
+  <path d="M32 20V33L41 38" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="49" cy="15" r="4" fill="white"/>
+</svg>
